@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.upperArea{
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cardArea{
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.loading{
+    height: 100vh;
+    margin: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

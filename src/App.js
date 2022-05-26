@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "./container/landingPage";
+import Description from "./container/description";
+import { ThemeProvider } from "@mui/material/styles";
+import Header from "./component/header";
+import { darkTheme, lightTheme } from "./MuiTheme";
+import "./App.css";
 
 function App() {
+  const [mode, setMode] = useState("light");
+
+  const selectedTheme = mode === "dark" ? darkTheme : lightTheme;
+
+  const onChangeMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  };
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ThemeProvider theme={selectedTheme}>
+        <Header mode={mode} setMode={() => onChangeMode()} />
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+
+          <Route exact path="/country-discription" element={<Description />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

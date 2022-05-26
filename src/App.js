@@ -27,7 +27,6 @@ function App() {
         <Header mode={mode} setMode={() => onChangeMode()} />
         <Routes>
           <Route exact path="/" element={<LandingPage />} />
-
           <Route exact path="/country-discription" element={<Description />} />
         </Routes>
       </ThemeProvider>

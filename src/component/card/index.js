@@ -18,50 +18,51 @@ const CardSection = ({
   const handleClick = () =>
     navigate("/country-discription", { state: countryData });
 
-    const details = [
-      {
-        name: "Population:",
-        value: population,
-      },
-      {
-        name: "Region:",
-        value: region,
-      },
-      {
-        name: "Capital:",
-        value: capital,
-      },
-    ];
+  const details = [
+    {
+      name: "Population:",
+      value: population,
+    },
+    {
+      name: "Region:",
+      value: region,
+    },
+    {
+      name: "Capital:",
+      value: capital,
+    },
+  ];
 
   return (
     <Card
       sx={{
-        width:{xs: 220, sm: 200, md: 280, lg: 310,xl:400 },
-        mr:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
-        mt:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
-        mb:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
+        width: { xs: 220, sm: 200, md: 280, lg: 310, xl: 400 },
+        mr: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
+        mt: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
+        mb: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
         bgcolor: "background.color",
         color: "primary.text",
-        height:300
+        height: 300,
       }}
       onClick={handleClick}
     >
-      <CardActionArea sx={{ height:"100%"}}>
+      <CardActionArea sx={{ height: "100%" }}>
         <CardMedia component="img" height="140" image={flag} alt={country} />
-        <CardContent sx={{ height:"100%"}}>
+        <CardContent sx={{ height: "100%" }}>
           <Typography
             gutterBottom
             variant="h6"
-            sx={{ fontWeight: 600,textOverflow:"ellipsis" }}
+            sx={{ fontWeight: 600, textOverflow: "ellipsis" }}
             component="span"
           >
             {country}
           </Typography>
           <br />
-          {details?.map((res) => {
+          {details?.map((res,index) => {
             return (
               <>
                 <Typography
+                  key={index}
                   gutterBottom
                   variant="h7"
                   sx={{ fontWeight: 600 }}

@@ -59,9 +59,9 @@ const Detail = ({ data }) => {
 
       <div className="detailSection">
         <div>
-          {details.map((res) => {
+          {details.map((res,index) => {
             return (
-              <div className="innerSection">
+              <div className="innerSection" key={index}>
                 <Typography
                   gutterBottom
                   variant="h7"
@@ -120,9 +120,9 @@ const Detail = ({ data }) => {
           <Paper
             component="div"
             sx={{
-              p:0.2,
-              pr:1,
-              pl:1,
+              p: 0.2,
+              pr: 1,
+              pl: 1,
               display: "flex",
               alignItems: "center",
               height: 30,

@@ -39,9 +39,9 @@ const Filter = ({ handleChange, regionName, region }) => {
           backgroundColor: theme?.palette?.background?.color,
           border: "none",
           color: theme?.palette?.secondary?.main,
-          width: '150px',
+          width: "150px",
           paddingLeft: "2px",
-          paddingRight:"2px"
+          paddingRight: "2px",
         }}
       >
         <option value="Filter countries">FIlter countries</option>

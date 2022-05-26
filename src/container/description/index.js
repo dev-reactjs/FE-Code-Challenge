@@ -15,7 +15,7 @@ const Description = () => {
     <Box
       sx={{
         bgcolor: "background.default",
-        height: { xs: "200vh", sm: "200vh", md: "100%", lg: "100%" },
+        height: { xs: "200vh", sm: "200vh", md: "100vh", lg: "100vh" },
         width: "100%",
         pr: 8,
         pl: 8,

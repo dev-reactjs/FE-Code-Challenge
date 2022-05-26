@@ -14,7 +14,6 @@ const LandingPage = () => {
 
 
   const handleChange = (event) => {
-    console.log("hiii")
     const {
       target: { value },
     } = event;

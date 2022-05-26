@@ -1,3 +1,5 @@
-.sectionSelect{
-    border:'none'
+
+.sectionSelect:focus{
+    border:'none';
+    outline: none !important;
 }

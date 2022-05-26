@@ -36,10 +36,10 @@ const CardSection = ({
   return (
     <Card
       sx={{
-        width: 280,
-        mr: 6,
-        mt: 6,
-        mb: 6,
+        width:{xs: 220, sm: 200, md: 280, lg: 310,xl:400 },
+        mr:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
+        mt:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
+        mb:{xs: 2, sm: 4, md: 6, lg: 12 ,xl:14},
         bgcolor: "background.color",
         color: "primary.text",
         height:300

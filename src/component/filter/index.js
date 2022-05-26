@@ -1,11 +1,5 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import MenuItem from "@mui/material/MenuItem";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { useTheme } from "@mui/material/styles";
 import "./filter.css";
 
@@ -50,7 +44,7 @@ const Filter = ({ handleChange, regionName, region }) => {
           paddingRight:"2px"
         }}
       >
-        <option value="FIlter countries">FIlter countries</option>
+        <option value="Filter countries">FIlter countries</option>
         {region.length &&
           region?.map((name, index) => (
             <option

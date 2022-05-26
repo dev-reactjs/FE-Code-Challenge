@@ -45,10 +45,6 @@ const Description = () => {
           }}
           alt="image"
         />
-        {/* <img
-          src={state?.flags?.png}
-          className="image"
-        /> */}
         <Detail data={state} />
       </div>
     </Box>

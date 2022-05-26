@@ -23,6 +23,11 @@ export const darkTheme = createTheme({
     },
     contrastText:'#fff'
   },
+  breakpoints:{
+    keys:{
+      
+    }
+  }
 });
 
 export const lightTheme = createTheme({

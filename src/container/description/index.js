@@ -21,8 +21,8 @@ const handleClick = () => navigate("/");
       <Box
     component="img"
     sx={{
-      width: {xs:300, sm: 400, md: 600 ,lg:800},
-      height: {xs:150, sm: 200, md: 400, lg:600},
+      width: {xs:300, sm: 400, md: 600 ,lg:700},
+      height: {xs:150, sm: 200, md: 400, lg:500},
         content: {
             xs: `url(${state?.flags?.png})`,
             sm: `url(${state?.flags?.png})`,

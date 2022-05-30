@@ -1,4 +1,4 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-const CardSection = ({
+const CardSection : FunctionComponent<CardSectionProps> = ({
   flag,
   region,
   population,
@@ -40,8 +40,8 @@ const CardSection = ({
         mr: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
         mt: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
         mb: { xs: 2, sm: 4, md: 6, lg: 12, xl: 14 },
-        bgcolor: "background.color",
-        color: "primary.text",
+        bgcolor: "background.paper",
+        color: "primary.light",
         height: 300,
       }}
       onClick={handleClick}
@@ -64,7 +64,7 @@ const CardSection = ({
                 <Typography
                   key={index}
                   gutterBottom
-                  variant="h7"
+                  variant="inherit"
                   sx={{ fontWeight: 600 }}
                   component="span"
                 >
@@ -82,5 +82,39 @@ const CardSection = ({
     </Card>
   );
 };
+
+interface CardSectionProps {
+  flag:string;
+  region:string;
+  population:string;
+  country:string;
+  capital:string;
+  countryData:coutries;
+}
+
+interface coutries {
+  flags:{
+    png:string
+  },
+  languages:string
+  currencies:{
+    name:any
+  }
+  name:{
+    nativeName:{
+      spa:{
+        common:string
+      }
+    },
+    common:string
+  }
+  region:string
+  subregion:string
+  capital:string[]
+  population:string
+  tld:string[]
+  borders:string[]
+}
+
 
 export default CardSection;

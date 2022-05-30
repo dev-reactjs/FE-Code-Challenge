@@ -11,6 +11,8 @@ const Description = () => {
   const { state } = useLocation();
   const handleClick = () => navigate("/");
 
+  const data:dataProps= state as dataProps;
+
   return (
     <Box
       sx={{
@@ -37,18 +39,42 @@ const Description = () => {
             width: { xs: 300, sm: 400, md: 600, lg: 600 },
             height: { xs: 150, sm: 200, md: 400, lg: 400 },
             content: {
-              xs: `url(${state?.flags?.png})`,
-              sm: `url(${state?.flags?.png})`,
-              md: `url(${state?.flags?.png})`,
-              lg: `url(${state?.flags?.png})`,
+              xs: `url(${data?.flags?.png})`,
+              sm: `url(${data?.flags?.png})`,
+              md: `url(${data?.flags?.png})`,
+              lg: `url(${data?.flags?.png})`,
             },
           }}
           alt="image"
         />
-        <Detail data={state} />
+        <Detail data={data} />
       </div>
     </Box>
   );
 };
+
+interface dataProps{
+  flags:{
+    png:string
+  },
+  languages:string
+  currencies:{
+    name:any
+  }
+  name:{
+    nativeName:{
+      spa:{
+        common:string
+      }
+    },
+    common:string
+  }
+  region:string
+  subregion:string
+  capital:string[]
+  population:string
+  tld:string[]
+  borders:string[]
+}
 
 export default Description;

@@ -1,22 +1,11 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import Paper from "@mui/material/Paper";
 import { useTheme } from "@mui/material/styles";
 import "./filter.css";
 
-const Filter = ({ handleChange, regionName, region }) => {
+const Filter : FunctionComponent<FilterProps>= ({ handleChange, regionName, region }) => {
   const theme = useTheme();
-  const ITEM_HEIGHT = 48;
-  const ITEM_PADDING_TOP = 8;
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-        backgroundColor: theme?.palette?.primary?.main,
-        color: "secondary",
-      },
-    },
-  };
+
 
   return (
     <Paper
@@ -27,7 +16,7 @@ const Filter = ({ handleChange, regionName, region }) => {
         justifyContent: "center",
         width: 150,
         height: 50,
-        bgcolor: "background.color",
+        bgcolor: "background.paper",
         mt: 6,
       }}
     >
@@ -36,7 +25,7 @@ const Filter = ({ handleChange, regionName, region }) => {
         value={regionName}
         className="sectionSelect"
         style={{
-          backgroundColor: theme?.palette?.background?.color,
+          backgroundColor: theme?.palette?.background?.paper,
           border: "none",
           color: theme?.palette?.secondary?.main,
           width: "150px",
@@ -50,7 +39,6 @@ const Filter = ({ handleChange, regionName, region }) => {
             <option
               key={index}
               value={name?.region}
-              style={{ bgColor: "background.color" }}
             >
               {name?.region}
             </option>
@@ -59,5 +47,35 @@ const Filter = ({ handleChange, regionName, region }) => {
     </Paper>
   );
 };
+
+interface FilterProps{
+  handleChange: (e:React.ChangeEvent<HTMLSelectElement>) => void
+  regionName:string
+  region :coutries[]
+}
+
+interface coutries{
+    flags:{
+      png:string
+    }
+    languages:string
+    currencies:{
+      name:any
+    }
+    name:{
+      nativeName:{
+        spa:{
+          common:string
+        }
+      },
+      common:string
+    }
+    region:string
+    subregion:string
+    capital:string[]
+    population:string
+    tld:string[]
+    borders:string[]
+  }
 
 export default Filter;

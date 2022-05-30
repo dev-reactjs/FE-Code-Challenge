@@ -1,12 +1,13 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import "./detail.css";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 
-const Detail = ({ data }) => {
+const Detail: FunctionComponent<DetailProps> = ({ data }) => {
   const lang = Object.values(data?.languages);
   const cur = Object.values(data?.currencies);
-  const currenciesName = cur.map((res) => res?.name);
+  console.log(cur,'hello')
+  const currenciesName = cur.map((res) =>  res?.name  )
 
   const details = [
     {
@@ -64,7 +65,7 @@ const Detail = ({ data }) => {
               <div className="innerSection" key={index}>
                 <Typography
                   gutterBottom
-                  variant="h7"
+                  variant="inherit"
                   sx={{ fontWeight: 600, ml: 6, mb: 2, color: "primary.text" }}
                   component="span"
                 >
@@ -72,9 +73,9 @@ const Detail = ({ data }) => {
                 </Typography>
                 <Typography
                   gutterBottom
-                  variant="h7"
+                  variant="inherit"
                   component="span"
-                  sx={{ color: "primary.text", ml: 1 }}
+                  sx={{ color: "primary.light", ml: 1 }}
                 >
                   {res.value}
                 </Typography>
@@ -88,17 +89,17 @@ const Detail = ({ data }) => {
               <div className="innerSection">
                 <Typography
                   gutterBottom
-                  variant="h7"
-                  sx={{ fontWeight: 600, ml: 6, mb: 2, color: "primary.text" }}
+                  variant="inherit"
+                  sx={{ fontWeight: 600, ml: 6, mb: 2, color: "primary.light" }}
                   component="span"
                 >
                   {res.name}
                 </Typography>
                 <Typography
                   gutterBottom
-                  variant="h7"
+                  variant="inherit"
                   component="span"
-                  sx={{ color: "primary.text", ml: 1 }}
+                  sx={{ color: "primary.light", ml: 1 }}
                 >
                   {res.value}
                 </Typography>
@@ -110,8 +111,8 @@ const Detail = ({ data }) => {
       <div className="lowestSection">
         <Typography
           gutterBottom
-          variant="h7"
-          sx={{ fontWeight: 600, ml: 6, mb: 6, color: "primary.text" }}
+          variant="inherit"
+          sx={{ fontWeight: 600, ml: 6, mb: 6, color: "primary.light" }}
           component="span"
         >
           Border Countries:
@@ -128,7 +129,7 @@ const Detail = ({ data }) => {
               height: 30,
               bgcolor: "background.color",
               ml: 1,
-              color: "primary.text",
+              color: "primary.light",
             }}
           >
             {res}
@@ -138,5 +139,29 @@ const Detail = ({ data }) => {
     </div>
   );
 };
+
+interface DetailProps {
+  data:{
+    languages:string
+    currencies:{
+      name:any
+    }
+    name:{
+      nativeName:{
+        spa:{
+          common:string
+        }
+      },
+      common:string
+    }
+    region:string
+    subregion:string
+    capital:string[]
+    population:string
+    tld:string[]
+    borders:string[]
+  }
+
+}
 
 export default Detail;

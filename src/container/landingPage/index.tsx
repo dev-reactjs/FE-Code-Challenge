@@ -8,15 +8,15 @@ import { fetchApi } from "./Api";
 import "./landingPage.css";
 
 const LandingPage = () => {
-  const [regionName, setRegionName] = useState("");
-  const [coutries, setCountries] = useState([]);
-  const [filterCoutries, setFilterCoutries] = useState([]);
-  const [search, setSearch] = useState("");
+  const [regionName, setRegionName] = useState<string>("");
+  const [coutries, setCountries] = useState<coutries[]>([]);
+  const [filterCoutries, setFilterCoutries] = useState<coutries[]>([]);
+  const [search, setSearch] = useState<string>("");
 
-  const handleChange = (event) => {
+  const handleChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
     const {
       target: { value },
-    } = event;
+    } = e;
     setRegionName(value);
     const selected = coutries?.filter((rr) => rr?.region == value);
     setFilterCoutries(selected);
@@ -45,7 +45,7 @@ const LandingPage = () => {
     }
   }, [search]);
 
-  const handleChangeSearch = (e) => {
+  const handleChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
@@ -93,5 +93,29 @@ const LandingPage = () => {
     </Box>
   );
 };
+
+interface coutries {
+  flags:{
+    png:string
+  },
+  languages:string
+  currencies:{
+    name:any
+  }
+  name:{
+    nativeName:{
+      spa:{
+        common:string
+      }
+    },
+    common:string
+  }
+  region:string
+  subregion:string
+  capital:string[]
+  population:string
+  tld:string[]
+  borders:string[]
+}
 
 export default LandingPage;

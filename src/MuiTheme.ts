@@ -5,11 +5,11 @@ export const darkTheme = createTheme({
     type: "dark",
     background: {
       default: "hsl(230, 17%, 14%)",
-      color: "hsl(280, 20%, 18%)",
+      paper: "hsl(280, 20%, 18%)",
     },
     primary: {
       main: "hsl(280, 20%, 18%)",
-      text:"hsl(0, 0%, 100%)"
+      light:"hsl(0, 0%, 100%)"
     },
     secondary: {
       main: "hsl(0, 0%, 100%)",
@@ -23,11 +23,6 @@ export const darkTheme = createTheme({
     },
     contrastText:'#fff'
   },
-  breakpoints:{
-    keys:{
-      
-    }
-  }
 });
 
 export const lightTheme = createTheme({
@@ -35,11 +30,11 @@ export const lightTheme = createTheme({
     type: "light",
     background: {
       default: "hsl(0,0%,96%)",
-      color: "hsl(0, 0%, 100%)",
+      paper: "hsl(0, 0%, 100%)",
     },
     primary: {
       main: "hsl(0, 0%, 100%)",
-      text:"hsl(230, 17%, 14%)"
+      light:"hsl(230, 17%, 14%)"
     },
     secondary: {
       main: "hsl(0, 0%, 52%)",
@@ -49,3 +44,4 @@ export const lightTheme = createTheme({
     },
   },
 });
+

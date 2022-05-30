@@ -1,4 +1,4 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import LightModeIcon from "@mui/icons-material/LightMode";
 
-const Header = ({ mode, setMode }) => {
+const Header : FunctionComponent<HeaderProps>= ({ mode, setMode }) => {
   return (
     <Box sx={{ flexGrow: 1, bgcolor: "background.color", boxShadow: 1 }}>
       <AppBar>
@@ -16,7 +16,7 @@ const Header = ({ mode, setMode }) => {
             Where in the world?
           </Typography>
           {mode === "light" ? <LightModeIcon /> : <ModeNightIcon />}
-          <Button color="inherit" onClick={() => setMode()} sx={{ mr: 6 }}>
+          <Button color="inherit" onClick={setMode} sx={{ mr: 6 }}>
             {mode === "light" ? "Dark Mode" : "light Mode"}
           </Button>
         </Toolbar>
@@ -24,5 +24,10 @@ const Header = ({ mode, setMode }) => {
     </Box>
   );
 };
+
+interface HeaderProps{
+  mode:string
+  setMode : (e: React.MouseEvent<HTMLButtonElement>) => void
+}
 
 export default Header;

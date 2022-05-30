@@ -1,9 +1,9 @@
-import React from "react";
+import React,{FunctionComponent} from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Search = ({ value, onChange }) => {
+const Search : FunctionComponent<SearchProps>= ({ value, onChange }) => {
   return (
     <Paper
       component="div"
@@ -13,7 +13,7 @@ const Search = ({ value, onChange }) => {
         alignItems: "center",
         width: 350,
         height: 50,
-        bgcolor: "background.color",
+        bgcolor: "background.paper",
         mt: 6,
       }}
     >
@@ -26,10 +26,15 @@ const Search = ({ value, onChange }) => {
           "aria-label": "search for a country",
         }}
         value={value}
-        onChange={(e) => onChange(e)}
+        onChange={onChange}
       />
     </Paper>
   );
 };
 
+
+interface SearchProps{
+  value:string;
+  onChange:(e: React.ChangeEvent<HTMLInputElement>)=> void
+}
 export default Search;
